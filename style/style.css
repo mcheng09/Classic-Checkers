@@ -1,0 +1,120 @@
+body {
+  background: #9E7668;
+  height: auto;
+  width: auto;
+}
+
+h1{
+  text-align: center;
+  color: #654321;
+  padding-bottom:
+}
+
+h2{
+  text-align: center;
+  color: #801313;
+  position: relative;
+  bottom: 16px;
+}
+
+h3{
+  text-align: center;
+  font-size: 2em;
+}
+
+table {
+  margin: 0 auto;
+  position: relative;
+  bottom: 320px;
+  border: 2px solid black;
+}
+
+td {
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+}
+
+.scoreBoard {
+  height: 10px;
+}
+.container {
+  text-align: center;
+  position: relative;
+  bottom: 30px;
+}
+
+.player1Board{
+  position: relative;
+  left: 10%;
+  bottom: 140px;
+  z-index: -1;
+}
+
+.player2Board {
+  position: relative;
+  left: 90%;
+  bottom: 295px;
+}
+
+.playerPieces {
+  background: red;
+  position: relative;
+  bottom: 50px;
+  width: 70px;
+}
+
+.playerScore {
+  background: aqua;
+  width: 40px;
+  border-radius: 10px;
+  position: relative;
+  bottom: 26px;
+}
+
+.playerLabel{
+  background: green;
+  width: 60px;
+  height: 20px;
+}
+
+.white{
+  background: white;
+}
+
+.black{
+  background: black;
+}
+
+.highlightRed{
+  background: yellow;
+}
+
+.highlightBlack{
+  background: yellow;
+}
+
+.highlightMoveRed{
+  background: red;
+}
+
+.highlightMoveBlack {
+  background: red;
+}
+
+.redPiece{
+  background-image: url('../images/redPiece.png');
+}
+
+.blackPiece {
+  background-image: url('../images/blackPiece.png');
+}
+
+#reset {
+  padding: 5px;
+  width: 200px;
+  font-size: 1.5em;
+  border-radius: 10px;
+  margin: 0 auto;
+}

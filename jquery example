@@ -1,0 +1,20 @@
+
+$("redPiece").on("click", function(){
+    //Do something here when a red piece is clicked
+    if(turn === "red"){
+      redMove();
+    }
+})
+
+$("blackPiece").on("click", function(){
+    //Do something here when a red piece is clicked
+    if(turn === "black"){
+      blackMove();
+    }
+})
+
+function redMove(){
+  $("redSpace").on("click", function() {
+    $("highlightRed").attr("white", "redPiece")
+  })
+}
