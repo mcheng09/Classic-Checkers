@@ -34,20 +34,27 @@ function selectRedPiece(){
       var cellMinus4 = parseInt(currentCellNum) - 4;
       var cellMinus5 = parseInt(currentCellNum) - 5;
       if ( spaces[i] === cellMinus4 ){
+        var firstOption = document.querySelector("[data-num='" + cellMinus4 + "']");
         // if cellMinus4 does not include redPiece ...
+        var checkSpot = firstOption.getAttribute("class");
+        if (checkSpot == "white redPiece") {
+          console.log("Did nothing 1(red)")
+        }
         // next an if/else statement to check whether there's a piece of not on that spot
-        //if () {
-        //}
-        //else{
-          var firstOption = document.querySelector("[data-num='" + cellMinus4 + "']");
-          //console.log( firstOption );
+        else{
           firstOption.className = "highlightMoveRed";
-        //}
+        }
       }
       else if ( spaces[i] === cellMinus5 ){
         var secondOption = document.querySelector("[data-num='" + cellMinus5 + "']");
+        var checkSpot = secondOption.getAttribute("class");
+        if (checkSpot == "white redPiece") {
+          console.log("Did nothing 2(red)")
+        }
+        else{
         //console.log( secondOption );
-        secondOption.className = "highlightMoveRed";
+          secondOption.className = "highlightMoveRed";
+        }
       }
     }
   }
@@ -72,13 +79,25 @@ function selectBlackPiece(){
       var cellPlus5 = parseInt(currentCellNum) + 5;
       if ( spaces[i] === cellPlus4 ){
         var firstOption = document.querySelector("[data-num='" + cellPlus4 + "']");
+        var checkSpot = firstOption.getAttribute("class");
+        if (checkSpot == "white redPiece") {
+          console.log("Did nothing 1(black)")
+        }
         //console.log( firstOption );
-        firstOption.className = "highlightMoveBlack";
+        else {
+          firstOption.className = "highlightMoveBlack";
+        }
       }
       else if ( spaces[i] === cellPlus5 ){
         var secondOption = document.querySelector("[data-num='" + cellPlus5 + "']");
         //console.log( secondOption );
-        secondOption.className = "highlightMoveBlack";
+        var checkSpot = secondOption.getAttribute("class");
+        if (checkSpot == "white redPiece") {
+          console.log("Did nothing 2(black)")
+        }
+        else {
+          secondOption.className = "highlightMoveBlack";
+        }
       }
         //change cell data-num = spaces[i] to red class
         //how do I select a data num by combing the currentCellNum?
@@ -91,7 +110,7 @@ function redMove(){
   var selectedCell = this;
   //console.log(selectedCell);
   var selectedGridLocation = selectedCell.getAttribute("data-num");
-  singleEventListenerRedMove();
+  //singleEventListenerRedMove();
   selectedCell.className = "white redPiece";
   var redSquare = document.getElementsByClassName("highlightMoveRed");
   for(var i = 0; i <= redSquare.length + 1; i++) {
@@ -115,7 +134,7 @@ function blackMove(){
   var selectedCell = this;
   //console.log(selectedCell);
   var selectedGridLocation = selectedCell.getAttribute("data-num");
-  singleEventListenerBlackMove();
+  //singleEventListenerBlackMove();
   selectedCell.className = "white blackPiece";
   var redSquare = document.getElementsByClassName("highlightMoveBlack");
   for(var i = 0; i <= redSquare.length + 1; i++) {

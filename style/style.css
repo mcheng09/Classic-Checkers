@@ -47,14 +47,14 @@ td {
 
 .player1Board{
   position: relative;
-  left: 10%;
+  left: 15%;
   bottom: 140px;
   z-index: -1;
 }
 
 .player2Board {
   position: relative;
-  left: 90%;
+  left: 85%;
   bottom: 295px;
 }
 
@@ -62,7 +62,7 @@ td {
   background: red;
   position: relative;
   bottom: 50px;
-  width: 70px;
+  width: 100px;
 }
 
 .playerScore {
