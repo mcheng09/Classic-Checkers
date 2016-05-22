@@ -2,6 +2,11 @@
 
 The game I have chosen to work on for Project 1 was checkers.
 
+### Game Links
+
+http://promoter-marilyn-53037.bitballoon.com/
+
+
 ### Technologies Used
 HTML formatting style
 CSS formatting style
@@ -40,6 +45,6 @@ Go back to my github page and submit a pull request and comment a summary of the
 
 ### Shoutouts
 
-I'd just like to give a shoutout to everyone in WDI 29. Seeing everyone working hard on their project gave me confidence and motivation to continue working on the project. 
+I'd just like to give a shoutout to everyone in WDI 29. Seeing everyone working hard on their project gave me confidence and motivation to continue working on the project.
 
 GOOD JOB EVERYBODY!
