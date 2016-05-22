@@ -14,8 +14,6 @@ function startGame(){
   scoreCounter();
   singleEventListenerRed();
   singleEventListenerBlack();
-  singleEventListenerRedMove();
-  singleEventListenerBlackMove();
   addStartOver();
 }
 
@@ -41,7 +39,7 @@ function selectRedPiece(){
           console.log("Did nothing 1(red)")
         }
         // next an if/else statement to check whether there's a piece of not on that spot
-        else{
+        else {
           firstOption.className = "highlightMoveRed";
         }
       }
@@ -51,12 +49,13 @@ function selectRedPiece(){
         if (checkSpot == "white redPiece") {
           console.log("Did nothing 2(red)")
         }
-        else{
+        else {
         //console.log( secondOption );
           secondOption.className = "highlightMoveRed";
         }
       }
     }
+    singleEventListenerRedMove();
   }
 }
 
@@ -80,7 +79,7 @@ function selectBlackPiece(){
       if ( spaces[i] === cellPlus4 ){
         var firstOption = document.querySelector("[data-num='" + cellPlus4 + "']");
         var checkSpot = firstOption.getAttribute("class");
-        if (checkSpot == "white redPiece") {
+        if (checkSpot == "white blackPiece") {
           console.log("Did nothing 1(black)")
         }
         //console.log( firstOption );
@@ -92,7 +91,7 @@ function selectBlackPiece(){
         var secondOption = document.querySelector("[data-num='" + cellPlus5 + "']");
         //console.log( secondOption );
         var checkSpot = secondOption.getAttribute("class");
-        if (checkSpot == "white redPiece") {
+        if (checkSpot == "white blackPiece") {
           console.log("Did nothing 2(black)")
         }
         else {
@@ -102,6 +101,7 @@ function selectBlackPiece(){
         //change cell data-num = spaces[i] to red class
         //how do I select a data num by combing the currentCellNum?
     }
+      singleEventListenerBlackMove();
   }
 }
 
