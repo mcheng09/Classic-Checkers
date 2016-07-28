@@ -39,7 +39,7 @@ function selectRedPiece(){
           // if cellMinus4 does not include redPiece ...
           var checkSpot = firstOption.getAttribute("class");
           if (checkSpot == "white redPiece" || checkSpot == "white blackPiece") {
-            console.log("Did nothing 1(red)")
+            // console.log("Did nothing 1(red)")
           }
           // next an if/else statement to check whether there's a piece of not on that spot
           else {
@@ -50,7 +50,7 @@ function selectRedPiece(){
           var secondOption = document.querySelector("[data-num='" + cellMinus5 + "']");
           var checkSpot = secondOption.getAttribute("class");
           if (checkSpot == "white redPiece" || checkSpot == "white blackPiece") {
-            console.log("Did nothing 2(red)")
+            // console.log("Did nothing 2(red)")
           }
           else {
           //console.log( secondOption );
@@ -59,7 +59,7 @@ function selectRedPiece(){
         }
       }
     }
-    console.log("Not a valid selection")
+    // console.log("Not a valid selection")
     checkForWin();
     boardWatch();
     singleEventListenerRedMove();
@@ -89,7 +89,7 @@ function selectBlackPiece(){
           var firstOption = document.querySelector("[data-num='" + cellPlus4 + "']");
           var checkSpot = firstOption.getAttribute("class");
           if (checkSpot == "white blackPiece" || checkSpot == "white redPiece") {
-            console.log("Did nothing 1(black)")
+            // console.log("Did nothing 1(black)")
           }
           //console.log( firstOption );
           else {
@@ -101,7 +101,7 @@ function selectBlackPiece(){
           //console.log( secondOption );
           var checkSpot = secondOption.getAttribute("class");
           if (checkSpot == "white blackPiece" || checkSpot == "white redPiece") {
-            console.log("Did nothing 2(black)")
+            // console.log("Did nothing 2(black)")
           }
           else {
             secondOption.className = "highlightMoveBlack";
@@ -109,7 +109,7 @@ function selectBlackPiece(){
         }
       }
     }
-    console.log("Not a valid selection")
+    // console.log("Not a valid selection")
     checkForWin();
     boardWatch();
     singleEventListenerBlackMove();
@@ -142,7 +142,7 @@ function redMove(){
     turn = "black"
   }
   else {
-    console.log("Can't move there!")
+    // console.log("Can't move there!")
   }
   boardWatch();
 }
@@ -173,7 +173,7 @@ function blackMove(){
     turn = "red";
   }
   else {
-    console.log ("Can't move there!")
+    // console.log ("Can't move there!")
   }
   boardWatch();
 }
