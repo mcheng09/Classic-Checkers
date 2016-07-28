@@ -115,6 +115,18 @@ td {
   background-image: url('../images/blackPiece.png');
 }
 
+.redKing{
+  background-image: url('../images/redKing.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.blackKing {
+  background-image: url('../images/blackKing.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 #reset {
   padding: 5px;
   width: 200px;
