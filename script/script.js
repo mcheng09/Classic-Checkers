@@ -38,8 +38,23 @@ function selectRedPiece(){
           var firstOption = document.querySelector("[data-num='" + cellMinus4 + "']");
           // if cellMinus4 does not include redPiece ...
           var checkSpot = firstOption.getAttribute("class");
-          if (checkSpot == "white redPiece" || checkSpot == "white blackPiece") {
+          if (checkSpot == "white redPiece") {
             // console.log("Did nothing 1(red)")
+          }
+          else if (checkSpot == "white blackPiece") {
+            for(var i = 0; i < spaces.length ; i++) {
+              var cellMinus8 = parseInt(currentCellNum) - 8;
+              if (spaces[i] === cellMinus8) {
+                var jumpOption = document.querySelector("[data-num='" + cellMinus8 + "']");
+                var checkJumpSpot = jumpOption.getAttribute("class");
+                if (checkJumpSpot == "white redPiece" || checkJumpSpot == "white blackPiece") {
+                  console.log("FREEZE!")
+                }
+                else {
+                  jumpOption.className = "highlightMoveRed";
+                }
+              }
+            }
           }
           // next an if/else statement to check whether there's a piece of not on that spot
           else {
@@ -49,8 +64,23 @@ function selectRedPiece(){
         else if ( spaces[i] === cellMinus5 ){
           var secondOption = document.querySelector("[data-num='" + cellMinus5 + "']");
           var checkSpot = secondOption.getAttribute("class");
-          if (checkSpot == "white redPiece" || checkSpot == "white blackPiece") {
+          if (checkSpot == "white redPiece") {
             // console.log("Did nothing 2(red)")
+          }
+          else if (checkSpot == "white blackPiece") {
+            for(var j = 0; j < spaces.length ; j++) {
+              var cellMinus10 = parseInt(currentCellNum) - 10;
+              if (spaces[j] === cellMinus10) {
+                var jumpOption = document.querySelector("[data-num='" + cellMinus10 + "']");
+                var checkJumpSpot = jumpOption.getAttribute("class");
+                if (checkJumpSpot == "white redPiece" || checkJumpSpot == "white blackPiece") {
+                  console.log("FREEZE!")
+                }
+                else {
+                  jumpOption.className = "highlightMoveRed";
+                }
+              }
+            }
           }
           else {
           //console.log( secondOption );
@@ -88,8 +118,23 @@ function selectBlackPiece(){
         if ( spaces[i] === cellPlus4 ){
           var firstOption = document.querySelector("[data-num='" + cellPlus4 + "']");
           var checkSpot = firstOption.getAttribute("class");
-          if (checkSpot == "white blackPiece" || checkSpot == "white redPiece") {
+          if (checkSpot == "white blackPiece") {
             // console.log("Did nothing 1(black)")
+          }
+          else if (checkSpot == "white redPiece") {
+            for(var j = 0; j < spaces.length ; j++) {
+              var cellPlus8 = parseInt(currentCellNum) + 8;
+              if (spaces[j] === cellPlus8) {
+                var jumpOption = document.querySelector("[data-num='" + cellPlus8 + "']");
+                var checkJumpSpot = jumpOption.getAttribute("class");
+                if (checkJumpSpot == "white redPiece" || checkJumpSpot == "white blackPiece") {
+                  console.log("FREEZE!")
+                }
+                else {
+                  jumpOption.className = "highlightMoveBlack";
+                }
+              }
+            }
           }
           //console.log( firstOption );
           else {
@@ -100,8 +145,23 @@ function selectBlackPiece(){
           var secondOption = document.querySelector("[data-num='" + cellPlus5 + "']");
           //console.log( secondOption );
           var checkSpot = secondOption.getAttribute("class");
-          if (checkSpot == "white blackPiece" || checkSpot == "white redPiece") {
+          if (checkSpot == "white blackPiece") {
             // console.log("Did nothing 2(black)")
+          }
+          else if (checkSpot == "white redPiece") {
+            for(var i = 0; i < spaces.length ; i++) {
+              var cellPlus10 = parseInt(currentCellNum) + 10;
+              if (spaces[i] === cellPlus10) {
+                var jumpOption = document.querySelector("[data-num='" + cellPlus10 + "']");
+                var checkJumpSpot = jumpOption.getAttribute("class");
+                if (checkJumpSpot == "white redPiece" || checkJumpSpot == "white blackPiece") {
+                  console.log("FREEZE!")
+                }
+                else {
+                  jumpOption.className = "highlightMoveBlack";
+                }
+              }
+            }
           }
           else {
             secondOption.className = "highlightMoveBlack";
