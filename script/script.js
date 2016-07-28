@@ -51,6 +51,7 @@ function selectRedPiece(){
                   console.log("FREEZE!")
                 }
                 else {
+                  firstOption.className = "highlightTakePiece blackPiece"
                   jumpOption.className = "highlightMoveRed";
                 }
               }
@@ -77,6 +78,7 @@ function selectRedPiece(){
                   console.log("FREEZE!")
                 }
                 else {
+                  secondOption.className = "highlightTakePiece blackPiece"
                   jumpOption.className = "highlightMoveRed";
                 }
               }
@@ -131,6 +133,7 @@ function selectBlackPiece(){
                   console.log("FREEZE!")
                 }
                 else {
+                  firstOption.className = "highlightTakePiece redPiece"
                   jumpOption.className = "highlightMoveBlack";
                 }
               }
@@ -158,6 +161,7 @@ function selectBlackPiece(){
                   console.log("FREEZE!")
                 }
                 else {
+                  secondOption.className = "highlightTakePiece redPiece"
                   jumpOption.className = "highlightMoveBlack";
                 }
               }
@@ -198,6 +202,12 @@ function redMove(){
         yellowSquare[0].className = "white";
       }
     }
+    var takePiece = document.getElementsByClassName("highlightTakePiece blackPiece")
+    for(var i = 0; i <= takePiece.length + 1 ; i++) {
+      if (takePiece.length != 0) {
+        takePiece[0].className = "white";
+      }
+    }
     document.getElementById("notifier").innerHTML = "Black's turn"
     turn = "black"
   }
@@ -229,6 +239,12 @@ function blackMove(){
         yellowSquare[0].className = "white";
       }
     }
+    var takePiece = document.getElementsByClassName("highlightTakePiece redPiece")
+    for(var i = 0; i <= takePiece.length + 1 ; i++) {
+      if (takePiece.length != 0) {
+        takePiece[0].className = "white";
+      }
+    }
     document.getElementById("notifier").innerHTML = "Red's turn"
     turn = "red";
   }
@@ -253,6 +269,13 @@ function removeSquaresRed () {
       yellowSquare[0].className = "white redPiece";
     }
   }
+  var greenSquare = document.getElementsByClassName("highlightTakePiece");
+  for(var i = 0; i <= greenSquare.length + 1; i++) {
+//    console.log(i);
+    if (greenSquare.length != 0) {
+      greenSquare[0].className = "white blackPiece";
+    }
+  }
 }
 
 function removeSquaresBlack () {
@@ -268,6 +291,13 @@ function removeSquaresBlack () {
 //    console.log(i);
     if (yellowSquare.length != 0) {
       yellowSquare[0].className = "white blackPiece";
+    }
+  }
+  var greenSquare = document.getElementsByClassName("highlightTakePiece");
+  for(var i = 0; i <= greenSquare.length + 1; i++) {
+//    console.log(i);
+    if (greenSquare.length != 0) {
+      greenSquare[0].className = "white redPiece";
     }
   }
 }

@@ -103,6 +103,10 @@ td {
   background: red;
 }
 
+.highlightTakePiece {
+  background: green;
+}
+
 .redPiece{
   background-image: url('../images/redPiece.png');
 }
