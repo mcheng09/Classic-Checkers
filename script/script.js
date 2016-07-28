@@ -91,8 +91,6 @@ function selectRedPiece(){
         }
       }
     }
-    // console.log("Not a valid selection")
-    checkForWin();
     boardWatch();
     singleEventListenerRedMove();
   }
@@ -173,8 +171,6 @@ function selectBlackPiece(){
         }
       }
     }
-    // console.log("Not a valid selection")
-    checkForWin();
     boardWatch();
     singleEventListenerBlackMove();
   }
@@ -250,6 +246,7 @@ function redMove(){
       targetSquare[0].className = "white blackPiece";
     }
   }
+  scoreCounter();
   boardWatch();
 }
 
@@ -329,6 +326,7 @@ function blackMove(){
       targetSquare[0].className = "white redPiece";
     }
   }
+  scoreCounter();
   boardWatch();
 }
 
@@ -385,14 +383,6 @@ function boardWatch(){
   singleEventListenerBlack();
 }
 
-function checkForWin() {
-  if (redPieces == 0) {
-    alert("Player 1 wins!");
-  }
-  else if (blackPieces == 0) {
-    alert("Player 2 wins!");
-  }
-}
 
 function singleEventListenerRed () {
   var boxes = document.getElementsByClassName("redPiece");
@@ -424,6 +414,32 @@ function singleEventListenerBlackMove () {
   }
 }
 
+
+function scoreCounter() {
+  var redPieces = document.getElementsByClassName("redPiece");
+  var blackPieces = document.getElementsByClassName("blackPiece");
+  var redScore = redPieces.length;
+  var blackScore = blackPieces.length;
+  var redCount = document.getElementById("redCounter");
+  var blackCount = document.getElementById("blackCounter");
+  redCount.innerHTML = redScore;
+  blackCount.innerHTML = blackScore;
+  checkForWin();
+}
+
+function checkForWin() {
+  var redPieces = document.getElementsByClassName("redPiece");
+  var blackPieces = document.getElementsByClassName("blackPiece");
+  var redScore = redPieces.length;
+  var blackScore = blackPieces.length;
+  if (redScore == 0) {
+    alert("Player 1 wins!");
+  }
+  else if (blackScore == 0) {
+    alert("Player 2 wins!");
+  }
+}
+
 function addStartOver(){
   var startingOver = document.getElementById("reset");
   startingOver.addEventListener("click", startOver);
@@ -431,18 +447,4 @@ function addStartOver(){
 
 function startOver(){
   location.reload();
-}
-
-function scoreCounter(redScore,blackScore) {
-  //grab the pieces from the html
-  redPieces = document.getElementsByClassName("redPiece");
-  blackPieces = document.getElementsByClassName("blackPiece");
-  //find pieces left for each player
-  redScore = redPieces.length;
-  blackScore = blackPieces.length;
-  //place the value in the counter and change the text so that it reflects it
-  var redCount = document.getElementById("redCounter");
-  var blackCount = document.getElementById("blackCounter");
-  redCount.innerHTML = redScore;
-  blackCount.innerHTML = blackScore;
 }
