@@ -38,55 +38,55 @@ function selectRedPiece(){
           var firstOption = document.querySelector("[data-num='" + cellMinus4 + "']");
           // if cellMinus4 does not include redPiece ...
           var checkSpot = firstOption.getAttribute("class");
-          if (checkSpot == "white redPiece") {
+          if (checkSpot == "white redPiece" || checkSpot == "white redKing") {
             // console.log("Did nothing 1(red)")
           }
-          else if (checkSpot == "white blackPiece") {
+          else if (checkSpot == "white blackPiece" || checkSpot == "white blackKing") {
             for(var i = 0; i < spaces.length ; i++) {
               var cellMinus8 = parseInt(currentCellNum) - 8;
               if (spaces[i] === cellMinus8) {
                 var jumpOption = document.querySelector("[data-num='" + cellMinus8 + "']");
                 var checkJumpSpot = jumpOption.getAttribute("class");
-                if (checkJumpSpot == "white redPiece" || checkJumpSpot == "white blackPiece") {
+                if (checkJumpSpot == "white redPiece" || checkJumpSpot == "white blackPiece" || checkJumpSpot == "white redKing" || checkJumpSpot == "white blackKing") {
                   console.log("FREEZE!")
                 }
                 else {
-                  firstOption.className = "highlightTakePiece blackPiece"
-                  jumpOption.className = "highlightMoveRed";
+                  firstOption.className = "highlightTakePiece blackPiece rightTarget"
+                  jumpOption.className = "highlightMoveRed right";
                 }
               }
             }
           }
           // next an if/else statement to check whether there's a piece of not on that spot
           else {
-            firstOption.className = "highlightMoveRed";
+            firstOption.className = "highlightMoveRed right";
           }
         }
         else if ( spaces[i] === cellMinus5 ){
           var secondOption = document.querySelector("[data-num='" + cellMinus5 + "']");
           var checkSpot = secondOption.getAttribute("class");
-          if (checkSpot == "white redPiece") {
+          if (checkSpot == "white redPiece" || checkSpot == "white redKing") {
             // console.log("Did nothing 2(red)")
           }
-          else if (checkSpot == "white blackPiece") {
+          else if (checkSpot == "white blackPiece" || checkSpot == "white blackKing") {
             for(var j = 0; j < spaces.length ; j++) {
               var cellMinus10 = parseInt(currentCellNum) - 10;
               if (spaces[j] === cellMinus10) {
                 var jumpOption = document.querySelector("[data-num='" + cellMinus10 + "']");
                 var checkJumpSpot = jumpOption.getAttribute("class");
-                if (checkJumpSpot == "white redPiece" || checkJumpSpot == "white blackPiece") {
+                if (checkJumpSpot == "white redPiece" || checkJumpSpot == "white blackPiece" || checkJumpSpot == "white redKing" || checkJumpSpot == "white blackKing") {
                   console.log("FREEZE!")
                 }
                 else {
-                  secondOption.className = "highlightTakePiece blackPiece"
-                  jumpOption.className = "highlightMoveRed";
+                  secondOption.className = "highlightTakePiece blackPiece leftTarget"
+                  jumpOption.className = "highlightMoveRed left";
                 }
               }
             }
           }
           else {
           //console.log( secondOption );
-            secondOption.className = "highlightMoveRed";
+            secondOption.className = "highlightMoveRed left";
           }
         }
       }
@@ -133,15 +133,15 @@ function selectBlackPiece(){
                   console.log("FREEZE!")
                 }
                 else {
-                  firstOption.className = "highlightTakePiece redPiece"
-                  jumpOption.className = "highlightMoveBlack";
+                  firstOption.className = "highlightTakePiece redPiece leftTarget"
+                  jumpOption.className = "highlightMoveBlack left";
                 }
               }
             }
           }
           //console.log( firstOption );
           else {
-            firstOption.className = "highlightMoveBlack";
+            firstOption.className = "highlightMoveBlack left";
           }
         }
         else if ( spaces[i] === cellPlus5 ){
@@ -161,14 +161,14 @@ function selectBlackPiece(){
                   console.log("FREEZE!")
                 }
                 else {
-                  secondOption.className = "highlightTakePiece redPiece"
-                  jumpOption.className = "highlightMoveBlack";
+                  secondOption.className = "highlightTakePiece redPiece rightTarget"
+                  jumpOption.className = "highlightMoveBlack right";
                 }
               }
             }
           }
           else {
-            secondOption.className = "highlightMoveBlack";
+            secondOption.className = "highlightMoveBlack right";
           }
         }
       }
@@ -187,7 +187,7 @@ function redMove(){
   //console.log(selectedCell);
   var selectedGridLocation = selectedCell.getAttribute("data-num");
   //singleEventListenerRedMove();
-  if (selectedCellAttr == "highlightMoveRed") {
+  if (selectedCellAttr == "highlightMoveRed left") {
     selectedCell.className = "white redPiece";
     var redSquare = document.getElementsByClassName("highlightMoveRed");
     for(var i = 0; i <= redSquare.length + 1; i++) {
@@ -202,17 +202,53 @@ function redMove(){
         yellowSquare[0].className = "white";
       }
     }
-    var takePiece = document.getElementsByClassName("highlightTakePiece blackPiece")
+    var takePiece = document.getElementsByClassName("highlightTakePiece blackPiece leftTarget")
     for(var i = 0; i <= takePiece.length + 1 ; i++) {
       if (takePiece.length != 0) {
         takePiece[0].className = "white";
       }
+    }
+    if (selectedGridLocation == 0 || selectedGridLocation == 1 || selectedGridLocation == 2 || selectedGridLocation == 3 ) {
+      selectedCell.className = "white redKing"
+    }
+    document.getElementById("notifier").innerHTML = "Black's turn"
+    turn = "black"
+  }
+  else if (selectedCellAttr == "highlightMoveRed right") {
+    selectedCell.className = "white redPiece";
+    var redSquare = document.getElementsByClassName("highlightMoveRed");
+    for(var i = 0; i <= redSquare.length + 1; i++) {
+      if (redSquare.length != 0) {
+        redSquare[0].className = "white";
+      }
+    }
+    var yellowSquare = document.getElementsByClassName("highlightRed");
+    for(var i = 0; i <= yellowSquare.length + 1 ; i++) {
+      //console.log(i);
+      if (yellowSquare.length != 0) {
+        yellowSquare[0].className = "white";
+      }
+    }
+    var takePiece = document.getElementsByClassName("highlightTakePiece blackPiece rightTarget")
+    for(var i = 0; i <= takePiece.length + 1 ; i++) {
+      if (takePiece.length != 0) {
+        takePiece[0].className = "white";
+      }
+    }
+    if (selectedGridLocation == 0 || selectedGridLocation == 1 || selectedGridLocation == 2 || selectedGridLocation == 3 ) {
+      selectedCell.className = "white redKing"
     }
     document.getElementById("notifier").innerHTML = "Black's turn"
     turn = "black"
   }
   else {
     // console.log("Can't move there!")
+  }
+  var targetSquare = document.getElementsByClassName("highlightTakePiece blackPiece")
+  for(var i = 0; i <= targetSquare.length + 1 ; i++) {
+    if (targetSquare.length != 0) {
+      targetSquare[0].className = "white blackPiece";
+    }
   }
   boardWatch();
 }
@@ -224,7 +260,7 @@ function blackMove(){
   // console.log(selectedCellAttr);
   var selectedGridLocation = selectedCell.getAttribute("data-num");
   //singleEventListenerBlackMove();
-  if (selectedCellAttr == "highlightMoveBlack") {
+  if (selectedCellAttr == "highlightMoveBlack left") {
     selectedCell.className = "white blackPiece";
     var redSquare = document.getElementsByClassName("highlightMoveBlack");
     for(var i = 0; i <= redSquare.length + 1; i++) {
@@ -239,17 +275,59 @@ function blackMove(){
         yellowSquare[0].className = "white";
       }
     }
-    var takePiece = document.getElementsByClassName("highlightTakePiece redPiece")
+    var takePiece = document.getElementsByClassName("highlightTakePiece redPiece leftTarget")
     for(var i = 0; i <= takePiece.length + 1 ; i++) {
       if (takePiece.length != 0) {
         takePiece[0].className = "white";
       }
+    }
+    if (selectedGridLocation == 32 || selectedGridLocation == 33 || selectedGridLocation == 34 || selectedGridLocation == 35 ) {
+      selectedCell.className = "white blackKing"
+    }
+    document.getElementById("notifier").innerHTML = "Red's turn"
+    turn = "red";
+  }
+  else if (selectedCellAttr == "highlightMoveBlack right") {
+    selectedCell.className = "white blackPiece";
+    var redSquare = document.getElementsByClassName("highlightMoveBlack");
+    for(var i = 0; i <= redSquare.length + 1; i++) {
+      if (redSquare.length != 0) {
+        redSquare[0].className = "white";
+      }
+    }
+    var yellowSquare = document.getElementsByClassName("highlightBlack");
+    for(var i = 0; i <= yellowSquare.length + 1 ; i++) {
+      //console.log(i);
+      if (yellowSquare.length != 0) {
+        yellowSquare[0].className = "white";
+      }
+    }
+    var takePiece = document.getElementsByClassName("highlightTakePiece redPiece rightTarget")
+    for(var i = 0; i <= takePiece.length + 1 ; i++) {
+      if (takePiece.length != 0) {
+        takePiece[0].className = "white";
+      }
+    }
+    var takePiece = document.getElementsByClassName("highlightTakePiece redPiece rightTarget")
+    for(var i = 0; i <= takePiece.length + 1 ; i++) {
+      if (takePiece.length != 0) {
+        takePiece[0].className = "white";
+      }
+    }
+    if (selectedGridLocation == 32 || selectedGridLocation == 33 || selectedGridLocation == 34 || selectedGridLocation == 35 ) {
+      selectedCell.className = "white blackKing"
     }
     document.getElementById("notifier").innerHTML = "Red's turn"
     turn = "red";
   }
   else {
     // console.log ("Can't move there!")
+  }
+  var targetSquare = document.getElementsByClassName("highlightTakePiece redPiece")
+  for(var i = 0; i <= targetSquare.length + 1 ; i++) {
+    if (targetSquare.length != 0) {
+      targetSquare[0].className = "white redPiece";
+    }
   }
   boardWatch();
 }
