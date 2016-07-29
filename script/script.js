@@ -25,7 +25,6 @@ function selectRedPiece(){
     if (selectedPieceAttr == "white redPiece") {
       removeSquaresRed();
       selectedPiece.className = "redPiece highlightRed";
-      singleEventListenerRedMove();
       //show possible moves
       var currentCell = selectedPiece;
       var currentCellNum = currentCell.getAttribute("data-num");
@@ -108,10 +107,8 @@ function selectBlackPiece(){
     if (selectedPieceAttr == "white blackPiece") {
       removeSquaresBlack();
       selectedPiece.className = "blackPiece highlightBlack";
-      //document.getElementsByClassName("highlightBlack").innerHTML=" ";
       var currentCell = selectedPiece;
       var currentCellNum = currentCell.getAttribute("data-num");
-      //console.log(currentCellNum);
       for(var i = 0 ; i < spaces.length ; i++) {
         var cellPlus4 = parseInt(currentCellNum) + 4;
         var cellPlus5 = parseInt(currentCellNum) + 5;
@@ -414,12 +411,15 @@ function singleEventListenerBlackMove () {
   }
 }
 
+function counterPieces() {
+  redPieces = document.getElementsByClassName("redPiece");
+  blackPieces = document.getElementsByClassName("blackPiece");
+  redScore = redPieces.length;
+  blackScore = blackPieces.length;
+}
 
 function scoreCounter() {
-  var redPieces = document.getElementsByClassName("redPiece");
-  var blackPieces = document.getElementsByClassName("blackPiece");
-  var redScore = redPieces.length;
-  var blackScore = blackPieces.length;
+  counterPieces();
   var redCount = document.getElementById("redCounter");
   var blackCount = document.getElementById("blackCounter");
   redCount.innerHTML = redScore;
@@ -428,10 +428,7 @@ function scoreCounter() {
 }
 
 function checkForWin() {
-  var redPieces = document.getElementsByClassName("redPiece");
-  var blackPieces = document.getElementsByClassName("blackPiece");
-  var redScore = redPieces.length;
-  var blackScore = blackPieces.length;
+  counterPieces();
   if (redScore == 0) {
     alert("Player 1 wins!");
   }
