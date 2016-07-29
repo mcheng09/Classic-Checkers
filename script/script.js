@@ -82,10 +82,6 @@ function selectRedPiece(){
         }
       }
     }
-<<<<<<< HEAD
-    if
-=======
->>>>>>> 0be400a65930a677c367deacb699f9a318c46128
     singleEventListenerRedMove();
   }
 }
@@ -378,15 +374,11 @@ function singleEventListenerBlackMove () {
   }
 }
 
-function counterPieces() {
+function scoreCounter() {
   redPieces = document.getElementsByClassName("redPiece");
   blackPieces = document.getElementsByClassName("blackPiece");
   redScore = redPieces.length;
   blackScore = blackPieces.length;
-}
-
-function scoreCounter() {
-  counterPieces();
   var redCount = document.getElementById("redCounter");
   var blackCount = document.getElementById("blackCounter");
   redCount.innerHTML = redScore;
@@ -395,12 +387,15 @@ function scoreCounter() {
 }
 
 function checkForWin() {
-  counterPieces();
-  if (redScore == 0) {
-    alert("Player 1 wins!");
+  redKings = document.getElementsByClassName("redKing");
+  blackKings = document.getElementsByClassName("blackKing");
+  redWin = redKings.length;
+  blackWin = blackKings.length;
+  if (redWin !== 0) {
+    alert("Red wins!");
   }
-  else if (blackScore == 0) {
-    alert("Player 2 wins!");
+  else if (blackWin !== 0) {
+    alert("Black wins!");
   }
 }
 
