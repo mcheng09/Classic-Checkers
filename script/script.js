@@ -4,7 +4,7 @@ var redPieces;
 var blackPieces;
 var boxes;
 var spaces = [0,1,2,3,5,6,7,8,9,10,11,12,14,15,16,17,18,19,20,21,23,24,25,26,27,28,29,30,32,33,34,35];
-var turn = "red"; //will switch between red and black
+var turn = "red";
 
 window.onload = function(){
   startGame();
@@ -15,7 +15,7 @@ function startGame(){
   singleEventListenerRed();
   singleEventListenerBlack();
   addStartOver();
-}
+};
 
 function selectRedPiece(){
   if(turn == "red") {
@@ -25,21 +25,15 @@ function selectRedPiece(){
     if (selectedPieceAttr == "white redPiece") {
       removeSquaresRed();
       selectedPiece.className = "redPiece highlightRed";
-      singleEventListenerRedMove();
-      //show possible moves
       var currentCell = selectedPiece;
       var currentCellNum = currentCell.getAttribute("data-num");
-      //console.log(currentCellNum);
       for(var i = 0 ; i < spaces.length ; i++) {
-        // if any of the squares already have the "highlightedRed" class remove it.
         var cellMinus4 = parseInt(currentCellNum) - 4;
         var cellMinus5 = parseInt(currentCellNum) - 5;
         if ( spaces[i] === cellMinus4 ){
           var firstOption = document.querySelector("[data-num='" + cellMinus4 + "']");
-          // if cellMinus4 does not include redPiece ...
           var checkSpot = firstOption.getAttribute("class");
           if (checkSpot == "white redPiece" || checkSpot == "white redKing") {
-            // console.log("Did nothing 1(red)")
           }
           else if (checkSpot == "white blackPiece" || checkSpot == "white blackKing") {
             for(var i = 0; i < spaces.length ; i++) {
@@ -57,7 +51,6 @@ function selectRedPiece(){
               }
             }
           }
-          // next an if/else statement to check whether there's a piece of not on that spot
           else {
             firstOption.className = "highlightMoveRed right";
           }
@@ -66,7 +59,6 @@ function selectRedPiece(){
           var secondOption = document.querySelector("[data-num='" + cellMinus5 + "']");
           var checkSpot = secondOption.getAttribute("class");
           if (checkSpot == "white redPiece" || checkSpot == "white redKing") {
-            // console.log("Did nothing 2(red)")
           }
           else if (checkSpot == "white blackPiece" || checkSpot == "white blackKing") {
             for(var j = 0; j < spaces.length ; j++) {
@@ -85,22 +77,17 @@ function selectRedPiece(){
             }
           }
           else {
-          //console.log( secondOption );
             secondOption.className = "highlightMoveRed left";
           }
         }
       }
     }
-    boardWatch();
+    if
     singleEventListenerRedMove();
   }
 }
 
 function selectBlackPiece(){
-  // grab the current elements
-  // boxes = document.getElementsByClassName("blackPiece")
-  // remove the class (white or black)
-  // add the class yellow
   if(turn == "black"){
     var selectedPiece = this;
     var selectedGridLocation = selectedPiece.getAttribute("data-num");
@@ -108,10 +95,8 @@ function selectBlackPiece(){
     if (selectedPieceAttr == "white blackPiece") {
       removeSquaresBlack();
       selectedPiece.className = "blackPiece highlightBlack";
-      //document.getElementsByClassName("highlightBlack").innerHTML=" ";
       var currentCell = selectedPiece;
       var currentCellNum = currentCell.getAttribute("data-num");
-      //console.log(currentCellNum);
       for(var i = 0 ; i < spaces.length ; i++) {
         var cellPlus4 = parseInt(currentCellNum) + 4;
         var cellPlus5 = parseInt(currentCellNum) + 5;
@@ -119,7 +104,6 @@ function selectBlackPiece(){
           var firstOption = document.querySelector("[data-num='" + cellPlus4 + "']");
           var checkSpot = firstOption.getAttribute("class");
           if (checkSpot == "white blackPiece") {
-            // console.log("Did nothing 1(black)")
           }
           else if (checkSpot == "white redPiece") {
             for(var j = 0; j < spaces.length ; j++) {
@@ -137,17 +121,14 @@ function selectBlackPiece(){
               }
             }
           }
-          //console.log( firstOption );
           else {
             firstOption.className = "highlightMoveBlack left";
           }
         }
         else if ( spaces[i] === cellPlus5 ){
           var secondOption = document.querySelector("[data-num='" + cellPlus5 + "']");
-          //console.log( secondOption );
           var checkSpot = secondOption.getAttribute("class");
           if (checkSpot == "white blackPiece") {
-            // console.log("Did nothing 2(black)")
           }
           else if (checkSpot == "white redPiece") {
             for(var i = 0; i < spaces.length ; i++) {
@@ -177,12 +158,9 @@ function selectBlackPiece(){
 }
 
 function redMove(){
-  //change red class to: "white redPiece"
   var selectedCell = this;
   var selectedCellAttr = selectedCell.getAttribute("class")
-  //console.log(selectedCell);
   var selectedGridLocation = selectedCell.getAttribute("data-num");
-  //singleEventListenerRedMove();
   if (selectedCellAttr == "highlightMoveRed left") {
     selectedCell.className = "white redPiece";
     var redSquare = document.getElementsByClassName("highlightMoveRed");
@@ -193,7 +171,6 @@ function redMove(){
     }
     var yellowSquare = document.getElementsByClassName("highlightRed");
     for(var i = 0; i <= yellowSquare.length + 1 ; i++) {
-      //console.log(i);
       if (yellowSquare.length != 0) {
         yellowSquare[0].className = "white";
       }
@@ -220,7 +197,6 @@ function redMove(){
     }
     var yellowSquare = document.getElementsByClassName("highlightRed");
     for(var i = 0; i <= yellowSquare.length + 1 ; i++) {
-      //console.log(i);
       if (yellowSquare.length != 0) {
         yellowSquare[0].className = "white";
       }
@@ -238,7 +214,6 @@ function redMove(){
     turn = "black"
   }
   else {
-    // console.log("Can't move there!")
   }
   var targetSquare = document.getElementsByClassName("highlightTakePiece blackPiece")
   for(var i = 0; i <= targetSquare.length + 1 ; i++) {
@@ -251,12 +226,9 @@ function redMove(){
 }
 
 function blackMove(){
-  //change red class to: "white blackPiece"
   var selectedCell = this;
   var selectedCellAttr = selectedCell.getAttribute("class")
-  // console.log(selectedCellAttr);
   var selectedGridLocation = selectedCell.getAttribute("data-num");
-  //singleEventListenerBlackMove();
   if (selectedCellAttr == "highlightMoveBlack left") {
     selectedCell.className = "white blackPiece";
     var redSquare = document.getElementsByClassName("highlightMoveBlack");
@@ -267,7 +239,6 @@ function blackMove(){
     }
     var yellowSquare = document.getElementsByClassName("highlightBlack");
     for(var i = 0; i <= yellowSquare.length + 1 ; i++) {
-      //console.log(i);
       if (yellowSquare.length != 0) {
         yellowSquare[0].className = "white";
       }
@@ -294,7 +265,6 @@ function blackMove(){
     }
     var yellowSquare = document.getElementsByClassName("highlightBlack");
     for(var i = 0; i <= yellowSquare.length + 1 ; i++) {
-      //console.log(i);
       if (yellowSquare.length != 0) {
         yellowSquare[0].className = "white";
       }
@@ -318,7 +288,6 @@ function blackMove(){
     turn = "red";
   }
   else {
-    // console.log ("Can't move there!")
   }
   var targetSquare = document.getElementsByClassName("highlightTakePiece redPiece")
   for(var i = 0; i <= targetSquare.length + 1 ; i++) {
@@ -333,21 +302,18 @@ function blackMove(){
 function removeSquaresRed () {
   var redSquare = document.getElementsByClassName("highlightMoveRed");
   for(var i = 0; i <= redSquare.length + 1; i++) {
-//    console.log(i);
     if (redSquare.length != 0) {
       redSquare[0].className = "white";
     }
   }
   var yellowSquare = document.getElementsByClassName("highlightRed");
   for(var i = 0; i <= yellowSquare.length + 1 ; i++) {
-//    console.log(i);
     if (yellowSquare.length != 0) {
       yellowSquare[0].className = "white redPiece";
     }
   }
   var greenSquare = document.getElementsByClassName("highlightTakePiece");
   for(var i = 0; i <= greenSquare.length + 1; i++) {
-//    console.log(i);
     if (greenSquare.length != 0) {
       greenSquare[0].className = "white blackPiece";
     }
@@ -357,21 +323,18 @@ function removeSquaresRed () {
 function removeSquaresBlack () {
   var redSquare = document.getElementsByClassName("highlightMoveBlack");
   for(var i = 0; i <= redSquare.length + 1; i++) {
-//    console.log(i);
     if (redSquare.length != 0) {
       redSquare[0].className = "white";
     }
   }
   var yellowSquare = document.getElementsByClassName("highlightBlack");
   for(var i = 0; i <= yellowSquare.length + 1 ; i++) {
-//    console.log(i);
     if (yellowSquare.length != 0) {
       yellowSquare[0].className = "white blackPiece";
     }
   }
   var greenSquare = document.getElementsByClassName("highlightTakePiece");
   for(var i = 0; i <= greenSquare.length + 1; i++) {
-//    console.log(i);
     if (greenSquare.length != 0) {
       greenSquare[0].className = "white redPiece";
     }
@@ -386,7 +349,6 @@ function boardWatch(){
 
 function singleEventListenerRed () {
   var boxes = document.getElementsByClassName("redPiece");
-  //console.log(boxes);
   for (var i = 0; i < boxes.length; i++){
     boxes[i].addEventListener("click" , selectRedPiece);
   }
@@ -394,7 +356,6 @@ function singleEventListenerRed () {
 
 function singleEventListenerBlack () {
   var boxes = document.getElementsByClassName("blackPiece");
-  //console.log(boxes);
   for (var i = 0; i < boxes.length; i++){
     boxes[i].addEventListener("click" , selectBlackPiece);
   }
@@ -414,12 +375,15 @@ function singleEventListenerBlackMove () {
   }
 }
 
+function counterPieces() {
+  redPieces = document.getElementsByClassName("redPiece");
+  blackPieces = document.getElementsByClassName("blackPiece");
+  redScore = redPieces.length;
+  blackScore = blackPieces.length;
+}
 
 function scoreCounter() {
-  var redPieces = document.getElementsByClassName("redPiece");
-  var blackPieces = document.getElementsByClassName("blackPiece");
-  var redScore = redPieces.length;
-  var blackScore = blackPieces.length;
+  counterPieces();
   var redCount = document.getElementById("redCounter");
   var blackCount = document.getElementById("blackCounter");
   redCount.innerHTML = redScore;
@@ -428,10 +392,7 @@ function scoreCounter() {
 }
 
 function checkForWin() {
-  var redPieces = document.getElementsByClassName("redPiece");
-  var blackPieces = document.getElementsByClassName("blackPiece");
-  var redScore = redPieces.length;
-  var blackScore = blackPieces.length;
+  counterPieces();
   if (redScore == 0) {
     alert("Player 1 wins!");
   }
