@@ -5,7 +5,7 @@ The objective of this game is different from what you may think, so play wisely.
 
 ### Game Links
 
-http://promoter-marilyn-53037.bitballoon.com/
+http://consultant-bolt-73363.bitballoon.com/
 
 
 ### Technologies Used
