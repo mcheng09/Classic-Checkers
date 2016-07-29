@@ -82,7 +82,10 @@ function selectRedPiece(){
         }
       }
     }
+<<<<<<< HEAD
     if
+=======
+>>>>>>> 0be400a65930a677c367deacb699f9a318c46128
     singleEventListenerRedMove();
   }
 }
