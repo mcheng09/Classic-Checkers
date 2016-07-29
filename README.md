@@ -8,9 +8,9 @@ http://promoter-marilyn-53037.bitballoon.com/
 
 
 ### Technologies Used
-HTML formatting style
-CSS formatting style
-Vanilla Javascript
+- HTML formatting style
+- CSS formatting style
+- Vanilla Javascript
 
 ### User Stories/WireFrames
 Please see the link before to view my Trello page! The contents should include my user stories and wireframe.
@@ -21,27 +21,19 @@ https://trello.com/b/xAOzJbU5/unorthodox-checkers-mike-cheng
 * **Have the piece selected turn yellow (complete)**
 * **When selecting a piece, the possible moves will highlight red (complete)**
 * **Have the pieces be able to move (complete)**
-* **A king feature: when a piece reaches the end of the board it can go forwards and backwards**
-* **Jump feature: A piece can take another colors piece if the piece isn't block**
-* **Double jump feature: when a piece can take two pieces in one turn**
-* **Background music to be played when playing**
-* **Add animations of drag and jump **
-* **Add AI so player can play against computer(maybe)**
+* **Jump feature: A piece can take another colors piece if the piece isn't block (complete)**
+* **A king feature: when a piece reaches the end of the board it can go forwards and backwards (pending)**
+* **Add animations of drag and jump (undecided) **
+* **Add AI so player can play against computer(undecided)**
 
 ### How to contribute
 
 To contribute:
 
-Have a text editor.
-
-Fork the repository and clone it into your repository.
-
-Open using text editor.
-
-Make your contributions/changes.
-
-Go back to my github page and submit a pull request and comment a summary of the changes you made.
-
+1. Fork the repository and clone it into your repository.
+2. Open using text editor. (e.g. atom, sublime)
+3. Make your contributions/changes.
+4. Submit a pull request on my github page and await approval :)
 
 ### Shoutouts
 
