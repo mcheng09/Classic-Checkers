@@ -90,7 +90,6 @@ function selectRedPiece(){
         }
       }
     }
-    boardWatch();
     singleEventListenerRedMove();
   }
 }
