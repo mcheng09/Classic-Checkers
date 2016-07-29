@@ -228,6 +228,7 @@ function blackMove(){
   var selectedCell = this;
   var selectedCellAttr = selectedCell.getAttribute("class")
   var selectedGridLocation = selectedCell.getAttribute("data-num");
+  //singleEventListenerBlackMove();
   if (selectedCellAttr == "highlightMoveBlack left") {
     selectedCell.className = "white blackPiece";
     var redSquare = document.getElementsByClassName("highlightMoveBlack");
@@ -238,6 +239,7 @@ function blackMove(){
     }
     var yellowSquare = document.getElementsByClassName("highlightBlack");
     for(var i = 0; i <= yellowSquare.length + 1 ; i++) {
+      //console.log(i);
       if (yellowSquare.length != 0) {
         yellowSquare[0].className = "white";
       }
@@ -264,6 +266,7 @@ function blackMove(){
     }
     var yellowSquare = document.getElementsByClassName("highlightBlack");
     for(var i = 0; i <= yellowSquare.length + 1 ; i++) {
+      //console.log(i);
       if (yellowSquare.length != 0) {
         yellowSquare[0].className = "white";
       }
@@ -287,6 +290,7 @@ function blackMove(){
     turn = "red";
   }
   else {
+    // console.log ("Can't move there!")
   }
   var targetSquare = document.getElementsByClassName("highlightTakePiece redPiece")
   for(var i = 0; i <= targetSquare.length + 1 ; i++) {
