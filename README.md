@@ -1,6 +1,7 @@
 # Classic-Checkers
 
-The game I have chosen to work on for Project 1 was checkers.
+The game I have chosen to work on for Project 1 was checkers, but with a twist.
+The objective of this game is different from what you may think, so play wisely....
 
 ### Game Links
 
@@ -22,7 +23,6 @@ https://trello.com/b/xAOzJbU5/unorthodox-checkers-mike-cheng
 * **When selecting a piece, the possible moves will highlight red (complete)**
 * **Have the pieces be able to move (complete)**
 * **Jump feature: A piece can take another colors piece if the piece isn't block (complete)**
-* **A king feature: when a piece reaches the end of the board it can go forwards and backwards (pending)**
 * **Add animations of drag and jump (undecided) **
 * **Add AI so player can play against computer(undecided)**
 
